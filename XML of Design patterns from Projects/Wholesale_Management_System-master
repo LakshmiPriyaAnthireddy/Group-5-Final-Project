@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="bo.BoFactory" />
+			<role name="uniqueInstance" element="bo.BoFactory::boFactory:bo.BoFactory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="dao.DAOFactory" />
+			<role name="uniqueInstance" element="dao.DAOFactory::daoFactory:dao.DAOFactory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="db.DbConnection" />
+			<role name="uniqueInstance" element="db.DbConnection::dbConnection:db.DbConnection" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="dao.custom.CustomerDAO" />
+			<role name="Adapter" element="bo.custom.impl.CustomerBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.CustomerBOImpl::customerDAO:dao.custom.CustomerDAO" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::getAllCustomer():java.util.ArrayList" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::addCustomer(dto.CustomerDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::updateCustomer(dto.CustomerDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::ifCustomerExist(java.lang.String):boolean" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::deleteCustomer(java.lang.String):boolean" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::generateNewID():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="dao.custom.ItemDAO" />
+			<role name="Adapter" element="bo.custom.impl.ItemBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.ItemBOImpl::itemDAO:dao.custom.ItemDAO" />
+			<role name="Request()" element="bo.custom.impl.ItemBOImpl::getAllItems():java.util.ArrayList" />
+			<role name="Request()" element="bo.custom.impl.ItemBOImpl::deleteItem(java.lang.String):boolean" />
+			<role name="Request()" element="bo.custom.impl.ItemBOImpl::addItem(dto.ItemDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.ItemBOImpl::updateItem(dto.ItemDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.ItemBOImpl::ifItemExist(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="dao.custom.ItemDAO" />
+			<role name="Adapter" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.PurchaseOrderBOImpl::itemDAO:dao.custom.ItemDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::purchaseOrder(dto.OrderDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::getAllItems():java.util.ArrayList" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::searchItem(java.lang.String):dto.ItemDTO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::ifItemExist(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="dao.custom.CustomerDAO" />
+			<role name="Adapter" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.PurchaseOrderBOImpl::customerDAO:dao.custom.CustomerDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::getAllCustomers():java.util.ArrayList" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::ifCustomerExist(java.lang.String):boolean" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::searchCustomer(java.lang.String):dto.CustomerDTO" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="dao.custom.OrderDAO" />
+			<role name="Adapter" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.PurchaseOrderBOImpl::orderDAO:dao.custom.OrderDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::purchaseOrder(dto.OrderDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::generateNewOrderId():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="dao.custom.OrderDetailsDAO" />
+			<role name="Adapter" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.PurchaseOrderBOImpl::orderDetailsDAO:dao.custom.OrderDetailsDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::purchaseOrder(dto.OrderDTO):boolean" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="dao.custom.UserDAO" />
+			<role name="Adapter" element="bo.custom.impl.UserBOImpl" />
+			<role name="adaptee" element="bo.custom.impl.UserBOImpl::userDAO:dao.custom.UserDAO" />
+			<role name="Request()" element="bo.custom.impl.UserBOImpl::getAllUsers():java.util.ArrayList" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="controller.PlaceCustomerOrderFormController" />
+			<role name="State" element="bo.custom.PurchaseOrderBO" />
+			<role name="state" element="controller.PlaceCustomerOrderFormController::purchaseOrderBO:bo.custom.PurchaseOrderBO" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::existItem(java.lang.String):boolean" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::existCustomer(java.lang.String):boolean" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::generateNewOrderId():java.lang.String" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::loadAllCustomerIds():void" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::loadAllItemCodes():void" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::saveOrder(java.lang.String, java.lang.String, java.time.LocalDate, java.lang.String, double, java.util.List):boolean" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::findItem(java.lang.String):dto.ItemDTO" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::lambda$initialize$4(javafx.beans.value.ObservableValue, java.lang.String, java.lang.String):void" />
+			<role name="Request()" element="controller.PlaceCustomerOrderFormController::lambda$initialize$2(javafx.beans.value.ObservableValue, java.lang.String, java.lang.String):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.CustomerFormController" />
+			<role name="State" element="bo.custom.CustomerBO" />
+			<role name="state" element="controller.CustomerFormController::customerBO:bo.custom.CustomerBO" />
+			<role name="Request()" element="controller.CustomerFormController::loadAllCustomers():void" />
+			<role name="Request()" element="controller.CustomerFormController::addCustomerOnAction(javafx.event.ActionEvent):void" />
+			<role name="Request()" element="controller.CustomerFormController::existCustomer(java.lang.String):boolean" />
+			<role name="Request()" element="controller.CustomerFormController::deleteCustomerOnAction(javafx.event.ActionEvent):void" />
+			<role name="Request()" element="controller.CustomerFormController::UpdateCustomerOnAction(javafx.event.ActionEvent):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.ItemListFormController" />
+			<role name="State" element="bo.custom.ItemBO" />
+			<role name="state" element="controller.ItemListFormController::itemBO:bo.custom.ItemBO" />
+			<role name="Request()" element="controller.ItemListFormController::loadAllCustomers():void" />
+			<role name="Request()" element="controller.ItemListFormController::addItemOnAction(javafx.event.ActionEvent):void" />
+			<role name="Request()" element="controller.ItemListFormController::deleteItemsOnAction(javafx.event.ActionEvent):void" />
+			<role name="Request()" element="controller.ItemListFormController::ItemsUpdateOnAction(javafx.event.ActionEvent):void" />
+			<role name="Request()" element="controller.ItemListFormController::exitItem(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.DashboardFormController" />
+			<role name="State" element="dao.custom.OrderDAO" />
+			<role name="state" element="controller.DashboardFormController::orderDAO:dao.custom.OrderDAO" />
+			<role name="Request()" element="controller.DashboardFormController::initialize():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.IncomeReportsFormController" />
+			<role name="State" element="dao.custom.OrderDAO" />
+			<role name="state" element="controller.IncomeReportsFormController::orderDAO:dao.custom.OrderDAO" />
+			<role name="Request()" element="controller.IncomeReportsFormController::loadAllOrders():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.ManageOrdersFormController" />
+			<role name="State" element="dao.custom.OrderDAO" />
+			<role name="state" element="controller.ManageOrdersFormController::orderDAO:dao.custom.OrderDAO" />
+			<role name="Request()" element="controller.ManageOrdersFormController::existOrder(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.ItemReportsFormController" />
+			<role name="State" element="dao.custom.OrderDetailsDAO" />
+			<role name="state" element="controller.ItemReportsFormController::orderDAO:dao.custom.OrderDetailsDAO" />
+			<role name="Request()" element="controller.ItemReportsFormController::loadAllOrderDetails():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="controller.LoginFormController" />
+			<role name="State" element="bo.custom.UserBO" />
+			<role name="state" element="controller.LoginFormController::userBO:bo.custom.UserBO" />
+			<role name="Request()" element="controller.LoginFormController::isUserValid(entity.User):boolean" />
+			<role name="Request()" element="controller.LoginFormController::isUserAdmin(entity.User):boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="bo.custom.impl.CustomerBOImpl" />
+			<role name="State" element="dao.custom.CustomerDAO" />
+			<role name="state" element="bo.custom.impl.CustomerBOImpl::customerDAO:dao.custom.CustomerDAO" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::ifCustomerExist(java.lang.String):boolean" />
+			<role name="Request()" element="bo.custom.impl.CustomerBOImpl::generateNewID():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Context" element="bo.custom.impl.ItemBOImpl" />
+			<role name="State" element="dao.custom.ItemDAO" />
+			<role name="state" element="bo.custom.impl.ItemBOImpl::itemDAO:dao.custom.ItemDAO" />
+			<role name="Request()" element="bo.custom.impl.ItemBOImpl::ifItemExist(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="State" element="dao.custom.ItemDAO" />
+			<role name="state" element="bo.custom.impl.PurchaseOrderBOImpl::itemDAO:dao.custom.ItemDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::ifItemExist(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="State" element="dao.custom.CustomerDAO" />
+			<role name="state" element="bo.custom.impl.PurchaseOrderBOImpl::customerDAO:dao.custom.CustomerDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::ifCustomerExist(java.lang.String):boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="bo.custom.impl.PurchaseOrderBOImpl" />
+			<role name="State" element="dao.custom.OrderDAO" />
+			<role name="state" element="bo.custom.impl.PurchaseOrderBOImpl::orderDAO:dao.custom.OrderDAO" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::purchaseOrder(dto.OrderDTO):boolean" />
+			<role name="Request()" element="bo.custom.impl.PurchaseOrderBOImpl::generateNewOrderId():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

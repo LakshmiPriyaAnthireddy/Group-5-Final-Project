@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="ICardState" />
+			<role name="FactoryMethod()" element="ICardState::displayQCard(MyWorld, ICardState, ICardComponent, java.lang.String, java.lang.String, int):ICardComponent" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="MyWorld" />
+			<role name="Adapter" element="CountScore" />
+			<role name="adaptee" element="CountScore::w:MyWorld" />
+			<role name="Request()" element="CountScore::update(int):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="Command" />
+			<role name="Adapter" element="QuestionCardLeaf202" />
+			<role name="adaptee" element="QuestionCardLeaf202::openQuestion:Command" />
+			<role name="Request()" element="QuestionCardLeaf202::displayQCard(ICardComponent):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="Command" />
+			<role name="Adapter" element="QuestionCardLeaf207" />
+			<role name="adaptee" element="QuestionCardLeaf207::openQuestion:Command" />
+			<role name="Request()" element="QuestionCardLeaf207::displayQCard(ICardComponent):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="Command" />
+			<role name="Adapter" element="QuestionCardLeaf272" />
+			<role name="adaptee" element="QuestionCardLeaf272::openQuestion:Command" />
+			<role name="Request()" element="QuestionCardLeaf272::displayQCard(ICardComponent):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="Command" />
+			<role name="Adapter" element="QuestionCardLeaf273" />
+			<role name="adaptee" element="QuestionCardLeaf273::openQuestion:Command" />
+			<role name="Request()" element="QuestionCardLeaf273::displayQCard(ICardComponent):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer">
+		<instance>
+			<role name="Observer" element="Observer" />
+			<role name="Subject" element="TextField" />
+			<role name="Notify()" element="TextField::notifyObserver(int):void" />
+		</instance>
+	</pattern>
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="QuestionCardLeaf202" />
+			<role name="State" element="ICardState" />
+			<role name="state" element="QuestionCardLeaf202::cardState:ICardState" />
+			<role name="Request()" element="QuestionCardLeaf202::timeOutCard(MyWorld, ICardComponent):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="QuestionCardLeaf207" />
+			<role name="State" element="ICardState" />
+			<role name="state" element="QuestionCardLeaf207::cardState:ICardState" />
+			<role name="Request()" element="QuestionCardLeaf207::timeOutCard(MyWorld, ICardComponent):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="QuestionCardLeaf272" />
+			<role name="State" element="ICardState" />
+			<role name="state" element="QuestionCardLeaf272::cardState:ICardState" />
+			<role name="Request()" element="QuestionCardLeaf272::timeOutCard(MyWorld, ICardComponent):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="QuestionCardLeaf273" />
+			<role name="State" element="ICardState" />
+			<role name="state" element="QuestionCardLeaf273::cardState:ICardState" />
+			<role name="Request()" element="QuestionCardLeaf273::timeOutCard(MyWorld, ICardComponent):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="dao.Customerdao" />
+			<role name="FactoryMethod()" element="dao.Customerdao::read_cust(java.lang.String):talabate.Customer" />
+		</instance>
+		<instance>
+			<role name="Creator" element="dao.Restaurantdao" />
+			<role name="FactoryMethod()" element="dao.Restaurantdao::get_rest_byRestname(java.lang.String):talabate.Restaurant" />
+			<role name="FactoryMethod()" element="dao.Restaurantdao::get_rest_byRestuser(java.lang.String):talabate.Restaurant" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="daoImpl.RestaurantdaoImpl" />
+			<role name="Adapter" element="talabate.Restaurant" />
+			<role name="adaptee" element="talabate.Restaurant::rest_table:daoImpl.RestaurantdaoImpl" />
+			<role name="Request()" element="talabate.Restaurant::register():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="daoImpl.CustomerdaoImpl" />
+			<role name="Adapter" element="talabate.Customer" />
+			<role name="adaptee" element="talabate.Customer::cust_db:daoImpl.CustomerdaoImpl" />
+			<role name="Request()" element="talabate.Customer::register():void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State" />
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

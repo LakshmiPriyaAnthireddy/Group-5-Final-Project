@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="GroceryController" />
+			<role name="uniqueInstance" element="GroceryController::gc:GroceryController" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="Pin" />
+			<role name="uniqueInstance" element="Pin::instance:Pin" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adapter" element="CheckOut" />
+			<role name="Adaptee" element="Pin" />
+			<role name="adaptee" element="CheckOut::pin:Pin" />
+			<role name="Request()" element="CheckOut::setStateThreeFieldsEntered(java.lang.String):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="PhoneNumberStateMachine" />
+			<role name="Adapter" element="NoFieldEntered" />
+			<role name="adaptee" element="NoFieldEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="NoFieldEntered::number(java.lang.String):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="PhoneNumberStateMachine" />
+			<role name="Adapter" element="OneFieldEntered" />
+			<role name="adaptee" element="OneFieldEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="OneFieldEntered::backspace():void" />
+			<role name="Request()" element="OneFieldEntered::number(java.lang.String):void" />
+			<role name="Request()" element="OneFieldEntered::invalidPin():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="PhoneNumberStateMachine" />
+			<role name="Adapter" element="ThreeFieldsEntered" />
+			<role name="adaptee" element="ThreeFieldsEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="ThreeFieldsEntered::backspace():void" />
+			<role name="Request()" element="ThreeFieldsEntered::invalidPin():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="PhoneNumberStateMachine" />
+			<role name="Adapter" element="TwoFieldsEntered" />
+			<role name="adaptee" element="TwoFieldsEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="TwoFieldsEntered::backspace():void" />
+			<role name="Request()" element="TwoFieldsEntered::number(java.lang.String):void" />
+			<role name="Request()" element="TwoFieldsEntered::invalidPin():void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="CheckOut" />
+			<role name="Adaptee" element="PhoneNumberState" />
+			<role name="adaptee" element="CheckOut::state:PhoneNumberState" />
+			<role name="Request()" element="CheckOut::type(int):void" />
+			<role name="Request()" element="CheckOut::backspace():void" />
+			<role name="Request()" element="CheckOut::validPin(java.lang.String):boolean" />
+			<role name="Request()" element="CheckOut::invalidPin():void" />
+			<role name="Request()" element="CheckOut::setStateThreeFieldsEntered(java.lang.String):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="ScreenCommand" />
+			<role name="Adapter" element="GroceryController" />
+			<role name="adaptee" element="GroceryController::gocart:ScreenCommand" />
+			<role name="adaptee" element="GroceryController::gocategory:ScreenCommand" />
+			<role name="Request()" element="GroceryController::checkMyCart():void" />
+			<role name="Request()" element="GroceryController::goToHome():void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="GroceryScreen" />
+			<role name="Decorator" element="GroceryController" />
+			<role name="component" element="GroceryController::current:GroceryScreen" />
+			<role name="Operation()" element="GroceryController::display():void" />
+			<role name="Operation()" element="GroceryController::touch(int):void" />
+			<role name="Operation()" element="GroceryController::type(int):void" />
+			<role name="Operation()" element="GroceryController::backspace():void" />
+			<role name="Operation()" element="GroceryController::checkOut():void" />
+		</instance>
+	</pattern>
+	<pattern name="Observer">
+		<instance>
+			<role name="Observer" element="PhoneNumberObserver" />
+			<role name="Subject" element="CheckOut" />
+			<role name="Notify()" element="CheckOut::notifyObservers():void" />
+		</instance>
+	</pattern>
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="NoFieldEntered" />
+			<role name="State" element="PhoneNumberStateMachine" />
+			<role name="state" element="NoFieldEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="NoFieldEntered::number(java.lang.String):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="OneFieldEntered" />
+			<role name="State" element="PhoneNumberStateMachine" />
+			<role name="state" element="OneFieldEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="OneFieldEntered::backspace():void" />
+			<role name="Request()" element="OneFieldEntered::number(java.lang.String):void" />
+			<role name="Request()" element="OneFieldEntered::invalidPin():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="ThreeFieldsEntered" />
+			<role name="State" element="PhoneNumberStateMachine" />
+			<role name="state" element="ThreeFieldsEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="ThreeFieldsEntered::backspace():void" />
+			<role name="Request()" element="ThreeFieldsEntered::invalidPin():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="TwoFieldsEntered" />
+			<role name="State" element="PhoneNumberStateMachine" />
+			<role name="state" element="TwoFieldsEntered::machine:PhoneNumberStateMachine" />
+			<role name="Request()" element="TwoFieldsEntered::backspace():void" />
+			<role name="Request()" element="TwoFieldsEntered::number(java.lang.String):void" />
+			<role name="Request()" element="TwoFieldsEntered::invalidPin():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="CheckOut" />
+			<role name="State" element="PhoneNumberState" />
+			<role name="state" element="CheckOut::state:PhoneNumberState" />
+			<role name="Request()" element="CheckOut::type(int):void" />
+			<role name="Request()" element="CheckOut::backspace():void" />
+			<role name="Request()" element="CheckOut::validPin(java.lang.String):boolean" />
+			<role name="Request()" element="CheckOut::invalidPin():void" />
+			<role name="Request()" element="CheckOut::setStateThreeFieldsEntered(java.lang.String):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="messages.handlers.AbstractRequestHandler" />
+			<role name="FactoryMethod()" element="messages.handlers.AbstractRequestHandler::handle(messages.Message):messages.Message" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="client.controller.Controllers" />
+			<role name="uniqueInstance" element="client.controller.Controllers::instance:client.controller.Controllers" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="client.gui.AddBookGUI" />
+			<role name="uniqueInstance" element="client.gui.AddBookGUI::INSTANCE:client.gui.AddBookGUI" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="client.gui.LibrarianMenu" />
+			<role name="uniqueInstance" element="client.gui.LibrarianMenu::INSTANCE:client.gui.LibrarianMenu" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="client.gui.LoginGUI" />
+			<role name="uniqueInstance" element="client.gui.LoginGUI::INSTANCE:client.gui.LoginGUI" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="client.gui.MainMenu" />
+			<role name="uniqueInstance" element="client.gui.MainMenu::INSTANCE:client.gui.MainMenu" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="client.gui.ManagerMenu" />
+			<role name="uniqueInstance" element="client.gui.ManagerMenu::INSTANCE:client.gui.ManagerMenu" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="client.gui.ReaderMenu" />
+			<role name="uniqueInstance" element="client.gui.ReaderMenu::INSTANCE:client.gui.ReaderMenu" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="Server.Database" />
+			<role name="uniqueInstance" element="Server.Database::instance:Server.Database" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="Server.ServerUI" />
+			<role name="uniqueInstance" element="Server.ServerUI::INSTANCE:Server.ServerUI" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter" />
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State" />
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

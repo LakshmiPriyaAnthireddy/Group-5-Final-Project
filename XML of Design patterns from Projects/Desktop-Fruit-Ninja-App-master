@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="factory.AbstractFactory" />
+			<role name="FactoryMethod()" element="factory.AbstractFactory::makeFruit(strategy.Strategy):factory.Fruit" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="factory.Factory" />
+			<role name="uniqueInstance" element="factory.Factory::factory:factory.Factory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="modelLayer.UserDB" />
+			<role name="uniqueInstance" element="modelLayer.UserDB::userdb:modelLayer.UserDB" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter" />
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State" />
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

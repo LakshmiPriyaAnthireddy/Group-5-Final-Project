@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="cs5004.view.IView" />
+			<role name="Adapter" element="cs5004.controller.Controller" />
+			<role name="adaptee" element="cs5004.controller.Controller::view:cs5004.view.IView" />
+			<role name="Request()" element="cs5004.controller.Controller::run():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="cs5004.model.IShape" />
+			<role name="Adapter" element="cs5004.model.AbstractMotion" />
+			<role name="adaptee" element="cs5004.model.AbstractMotion::shape:cs5004.model.IShape" />
+			<role name="Request()" element="cs5004.model.AbstractMotion::getName():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="cs5004.util.DrawingPanel" />
+			<role name="Adapter" element="cs5004.view.GUIView" />
+			<role name="adaptee" element="cs5004.view.GUIView::drawingPanel:cs5004.util.DrawingPanel" />
+			<role name="Request()" element="cs5004.view.GUIView::render(java.util.List):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="cs5004.controller.Controller" />
+			<role name="State" element="cs5004.view.IView" />
+			<role name="state" element="cs5004.controller.Controller::view:cs5004.view.IView" />
+			<role name="Request()" element="cs5004.controller.Controller::run():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="cs5004.model.ModelAnime$Builder" />
+			<role name="State" element="cs5004.model.IModel" />
+			<role name="state" element="cs5004.model.ModelAnime$Builder::model:cs5004.model.IModel" />
+			<role name="Request()" element="cs5004.model.ModelAnime$Builder::addOval(java.lang.String, float, float, float, float, float, float, float, int, int):cs5004.util.TweenModelBuilder" />
+			<role name="Request()" element="cs5004.model.ModelAnime$Builder::addRectangle(java.lang.String, float, float, float, float, float, float, float, int, int):cs5004.util.TweenModelBuilder" />
+			<role name="Request()" element="cs5004.model.ModelAnime$Builder::addMove(java.lang.String, float, float, float, float, int, int):cs5004.util.TweenModelBuilder" />
+			<role name="Request()" element="cs5004.model.ModelAnime$Builder::addColorChange(java.lang.String, float, float, float, float, float, float, int, int):cs5004.util.TweenModelBuilder" />
+			<role name="Request()" element="cs5004.model.ModelAnime$Builder::addScaleToChange(java.lang.String, float, float, float, float, int, int):cs5004.util.TweenModelBuilder" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge">
+		<instance>
+			<role name="Abstraction" element="cs5004.model.AbstractMotion" />
+			<role name="Implementor" element="cs5004.model.IShape" />
+			<role name="implementor" element="cs5004.model.AbstractMotion::shape:cs5004.model.IShape" />
+			<role name="Operation()" element="cs5004.model.AbstractMotion::getName():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

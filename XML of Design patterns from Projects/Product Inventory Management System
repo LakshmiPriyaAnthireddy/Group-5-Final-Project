@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="in.ineuron.main.UserInputHandler" />
+			<role name="uniqueInstance" element="in.ineuron.main.UserInputHandler::userInputHandler:in.ineuron.main.UserInputHandler" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="in.ineuron.dao.IProductDao" />
+			<role name="Adapter" element="in.ineuron.service.ProductServiceImpl" />
+			<role name="adaptee" element="in.ineuron.service.ProductServiceImpl::productDao:in.ineuron.dao.IProductDao" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::addProduct(in.ineuron.pojo.Product):java.lang.Integer" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::viewProduct(java.lang.Integer):in.ineuron.pojo.Product" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::updateProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::deleteProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::viewAllProdutsInfo():java.util.List" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::authenticateUser():boolean" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="in.ineuron.service.IProductService" />
+			<role name="Adapter" element="in.ineuron.controller.ProductControllerImpl" />
+			<role name="adaptee" element="in.ineuron.controller.ProductControllerImpl::productService:in.ineuron.service.IProductService" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::addProduct(in.ineuron.pojo.Product):java.lang.Integer" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::viewProduct(java.lang.Integer):in.ineuron.pojo.Product" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::updateProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::deleteProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::viewAllProdutsInfo():java.util.List" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="in.ineuron.main.TestApp" />
+			<role name="State" element="in.ineuron.controller.IProductController" />
+			<role name="state" element="in.ineuron.main.TestApp::productController:in.ineuron.controller.IProductController" />
+			<role name="Request()" element="in.ineuron.main.TestApp::main(java.lang.String[]):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="in.ineuron.service.ProductServiceImpl" />
+			<role name="State" element="in.ineuron.dao.IProductDao" />
+			<role name="state" element="in.ineuron.service.ProductServiceImpl::productDao:in.ineuron.dao.IProductDao" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::addProduct(in.ineuron.pojo.Product):java.lang.Integer" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::viewProduct(java.lang.Integer):in.ineuron.pojo.Product" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::updateProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::deleteProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::viewAllProdutsInfo():java.util.List" />
+			<role name="Request()" element="in.ineuron.service.ProductServiceImpl::authenticateUser():boolean" />
+		</instance>
+		<instance>
+			<role name="Context" element="in.ineuron.controller.ProductControllerImpl" />
+			<role name="State" element="in.ineuron.service.IProductService" />
+			<role name="state" element="in.ineuron.controller.ProductControllerImpl::productService:in.ineuron.service.IProductService" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::addProduct(in.ineuron.pojo.Product):java.lang.Integer" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::viewProduct(java.lang.Integer):in.ineuron.pojo.Product" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::updateProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::deleteProduct(in.ineuron.pojo.Product):java.lang.String" />
+			<role name="Request()" element="in.ineuron.controller.ProductControllerImpl::viewAllProdutsInfo():java.util.List" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

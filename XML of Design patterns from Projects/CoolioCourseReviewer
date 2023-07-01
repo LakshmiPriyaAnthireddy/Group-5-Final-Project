@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="state.MainPageState$children" />
+			<role name="FactoryMethod()" element="state.MainPageState$children::getState():state.State" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="server.ServerCommunications" />
+			<role name="uniqueInstance" element="server.ServerCommunications::instance:server.ServerCommunications" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="state.Context" />
+			<role name="uniqueInstance" element="state.Context::context:state.Context" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="addReview.GenerateKey" />
+			<role name="Adapter" element="addReview.AddReviewCreateCourse" />
+			<role name="adaptee" element="addReview.AddReviewCreateCourse::key:addReview.GenerateKey" />
+			<role name="Request()" element="addReview.AddReviewCreateCourse::setState(java.lang.String):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="state.MainPageState" />
+			<role name="State" element="state.MainPageState$children" />
+			<role name="state" element="state.MainPageState::options:state.MainPageState$children[]" />
+			<role name="Request()" element="state.MainPageState::setMessageFromServer():void" />
+			<role name="Request()" element="state.MainPageState::setState(java.lang.String):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="state.State" />
+			<role name="TemplateMethod()" element="state.State::call():void" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

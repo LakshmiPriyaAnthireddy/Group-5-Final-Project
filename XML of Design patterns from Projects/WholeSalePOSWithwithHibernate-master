@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="Business.BOFactory" />
+			<role name="uniqueInstance" element="Business.BOFactory::boFactory:Business.BOFactory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="DAO.DAOFactory" />
+			<role name="uniqueInstance" element="DAO.DAOFactory::daoFactory:DAO.DAOFactory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="UtilityClasses.DBConnection" />
+			<role name="uniqueInstance" element="UtilityClasses.DBConnection::objref:UtilityClasses.DBConnection" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="UtilityClasses.DBConnection" />
+			<role name="uniqueInstance" element="UtilityClasses.DBConnection::objref:UtilityClasses.DBConnection" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="DAO.custom.Impl.CustomerDAOImpl" />
+			<role name="Adapter" element="Business.impl.CustomerBOImpl" />
+			<role name="adaptee" element="Business.impl.CustomerBOImpl::customerDAO:DAO.custom.Impl.CustomerDAOImpl" />
+			<role name="Request()" element="Business.impl.CustomerBOImpl::allCustomers():java.util.List" />
+			<role name="Request()" element="Business.impl.CustomerBOImpl::saveCustomer(DTO.CustomerDTO):void" />
+			<role name="Request()" element="Business.impl.CustomerBOImpl::deleteCustomer(java.lang.String):void" />
+			<role name="Request()" element="Business.impl.CustomerBOImpl::customerExistsinOrder(java.lang.String):boolean" />
+			<role name="Request()" element="Business.impl.CustomerBOImpl::updateCustomer(DTO.CustomerDTO):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="DAO.custom.Impl.ItemDAOImpl" />
+			<role name="Adapter" element="Business.impl.ItemBOImpl" />
+			<role name="adaptee" element="Business.impl.ItemBOImpl::itemDAO:DAO.custom.Impl.ItemDAOImpl" />
+			<role name="Request()" element="Business.impl.ItemBOImpl::getAllItems():java.util.List" />
+			<role name="Request()" element="Business.impl.ItemBOImpl::saveItem(DTO.ItemDTO):void" />
+			<role name="Request()" element="Business.impl.ItemBOImpl::deleteItem(java.lang.String):void" />
+			<role name="Request()" element="Business.impl.ItemBOImpl::itemExistsinOrder(java.lang.String):boolean" />
+			<role name="Request()" element="Business.impl.ItemBOImpl::updateItem(DTO.ItemDTO):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State" />
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

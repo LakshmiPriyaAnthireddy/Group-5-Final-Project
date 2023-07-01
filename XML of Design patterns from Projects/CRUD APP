@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="in.ineuron.persistence.IStudentDao" />
+			<role name="Adapter" element="in.ineuron.service.StudentServiceImpl" />
+			<role name="adaptee" element="in.ineuron.service.StudentServiceImpl::studentDao:in.ineuron.persistence.IStudentDao" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::addStudent(java.lang.String, java.lang.Integer, java.lang.String):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::searchStudent(java.lang.Integer):in.ineuron.dto.Student" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::updateStudent(in.ineuron.dto.Student):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::deleteStudent(java.lang.Integer):java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="in.ineuron.service.StudentServiceImpl" />
+			<role name="State" element="in.ineuron.persistence.IStudentDao" />
+			<role name="state" element="in.ineuron.service.StudentServiceImpl::studentDao:in.ineuron.persistence.IStudentDao" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::addStudent(java.lang.String, java.lang.Integer, java.lang.String):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::searchStudent(java.lang.Integer):in.ineuron.dto.Student" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::updateStudent(in.ineuron.dto.Student):java.lang.String" />
+			<role name="Request()" element="in.ineuron.service.StudentServiceImpl::deleteStudent(java.lang.Integer):java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+
